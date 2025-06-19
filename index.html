@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Reminder App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h1>🕒 Smart Reminder</h1>
+
+    <h2>Upcoming Reminders</h2>
+    <ul id="reminderList"></ul>
+  </div>
+
+  <!-- Floating Action Button -->
+  <div class="fab" id="openModal">＋</div>
+
+  <!-- Modal -->
+  <div class="modal" id="reminderModal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h3>Add New Reminder</h3>
+      <form id="reminderForm">
+        <input type="text" id="title" placeholder="Reminder Title" required />
+        <label for="dateTime">Choose Date & Time</label>
+        <input type="datetime-local" id="dateTime" required />
+        <label for="leadTime">Remind me before:</label>
+        <select id="leadTime">
+          <option value="5">5 minutes</option>
+          <option value="15">15 minutes</option>
+          <option value="60">1 hour</option>
+          <option value="1440">1 day</option>
+          <option value="2880">2 days</option>
+        </select>
+        <button type="submit">Add Reminder</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
