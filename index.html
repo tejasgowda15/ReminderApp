@@ -2,21 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Smart Reminder App</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json">
+  
 </head>
 <body>
 
-  <div class="container">
-    <h1>🕒 Smart Reminder</h1>
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <h3>☰ Menu</h3>
+    <ul>
+      <li><a href="#">All Reminders</a></li>
+      <li><a href="#">Upcoming</a></li>
+      <li><a href="#">Past</a></li>
+      <li><a href="#">Settings</a></li>
+      <li><a href="#" id="toggleDarkMode">💡 Toggle Dark Mode</a></li>
+    </ul>
+  </div>
 
-    <h2>Upcoming Reminders</h2>
-    <ul id="reminderList"></ul>
+  <!-- Hamburger Menu -->
+  <div class="hamburger" id="hamburger">☰</div>
+
+  <!-- Reminder + Calendar Section Wrapper -->
+  <div class="reminder-calendar-wrapper">
+    <!-- Reminder Section -->
+    <div class="reminder-section">
+      <div class="container">
+        <h1>🔔 Smart Reminder</h1>
+        <ul id="reminderList"></ul>
+        <button id="clearAllBtn">Clear All Reminders</button>
+      </div>
+    </div>
+
+    <!-- Calendar Section -->
+    <div class="calendar-section">
+      <div class="container">
+        <h2>🗓️ Calendar View</h2>
+        <div id="calendar"></div>
+        <ul id="dayReminders"></ul>
+      </div>
+    </div>
   </div>
 
   <!-- Floating Action Button -->
-  <div class="fab" id="openModal">＋</div>
+  <div class="fab" id="openModal">+</div>
 
   <!-- Modal -->
   <div class="modal" id="reminderModal">
@@ -39,7 +70,24 @@
       </form>
     </div>
   </div>
+  <!-- Notification Modal -->
+<div class="modal" id="notificationModal">
+  <div class="modal-content">
+    <h3>🔔 Reminder Alert</h3>
+    <p id="notificationText">You have a reminder!</p>
+    <button onclick="closeNotificationModal()">Close</button>
+  </div>
+</div>
 
+<!-- Reminder Sound -->
+<audio id="reminderSound" src="reminder.mp3" preload="auto"></audio>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast"></div>
+
+  <!-- JavaScript -->
   <script src="script.js"></script>
+  <audio id="reminderSound" src="reminder.mp3" preload="auto"></audio>
+
 </body>
 </html>
